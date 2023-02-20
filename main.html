@@ -7,157 +7,419 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="main.css">
+  <script defer src="mainScript.js"></script>
 </head>
 
 <body>
 
-  <nav class="navbar navbar-dark bg-dark ">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <a class="navbar-brand " href="#">EQCS</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <button type="button" data-bs-toggle="modal" data-bs-target="#emergencyModal1" id="emergency"
+            class="btn btn-danger">Earthquake Emergency</button>
+        </li>
+        <li class="nav-item">
+          <button type="button" id="inspection" class="btn btn-secondary" data-bs-target="#inspectionInquiryModal"
+            data-bs-toggle="modal">
+            Inspection Inquiry
+          </button>
+        </li>
+        <li class="nav-item dropdown">
+          <button type="button" id="eq-info" class="btn btn-secondary" data-bs-target="#latestEarthquakesModal"
+            data-bs-toggle="modal">
+            Latest Earthquakes
+          </button>
+        </li>
+      </ul>
+    </div>
   </nav>
 
-  <div class="container text-center">
+  <div style="width: 100%; height: 100vh;">
+    <div class="container text-center">
 
-    <!-- Main Functionalities -->
-    <div class="row" id="mainButtons">
+      <!-- Main Functionalities -->
+      <!-- <div class="row" id="mainButtons">
       <div class="col">
         <button type="button" data-bs-toggle="modal" data-bs-target="#emergencyModal1" id="emergency"
           class="btn btn-danger">Earthquake Emergency</button>
       </div>
       <div class="col">
-        <button type="button" id="inspection" class="btn btn-info">Inspection Inquiry</button>
+        <button type="button" id="inspection" class="btn btn-info" data-bs-target="#inspectionInquiryModal" data-bs-toggle="modal">
+          Inspection Inquiry
+        </button>
       </div>
       <div class="col">
-        <button type="button" id="eq-info" class="btn btn-info">Latest Earthquakes</button>
+        <button type="button" id="eq-info" class="btn btn-info" data-bs-target="#latestEarthquakesModal" data-bs-toggle="modal">
+          Latest Earthquakes
+        </button>
       </div>
-    </div>
+    </div> -->
 
-    <!-- Just put this random image to fill the space up, you can change the design -->
-    <div class="row">
-      <div class="col-2 ">
-      </div>
-      <div class="col-8 ">
-        <h4>Earthquake Risk Map</h4>
-        <img id="theMap" src="./1.jpg" class="d-block w-100">
-      </div>
-      <div class="col-2 ">
-      </div>
-    </div>
-
-  </div>
-
-  <!-- This part is the Earthquake Emergency Pop-up -->
-  <div class="modal fade" id="emergencyModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Earthquake Rescue Team Request</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      <!-- Just put this random image to fill the space up, you can change the design -->
+      <div class="row">
+        <div class="col-2 ">
         </div>
-        <div class="modal-body">
+        <div class="col-8 ">
+          <h4>Earthquake Risk Map</h4>
+          <img id="theMap" src="./images/map-earthquake_risk.png" class="d-block w-100">
+        </div>
+        <div class="col-2 ">
+        </div>
+      </div>
+
+    </div>
+
+    <!-- This part is the Earthquake Emergency Pop-up -->
+    <div class="modal fade" id="emergencyModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Earthquake Rescue Team Request</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <!-- These are tabs:  Me/sm iknow/ sm i heard vs. -->
+              <p>Who is in danger?</p>
+              <ul class="nav nav-tabs" id="emergencyTab" role="tablist">
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link active" id="me-tab" data-bs-toggle="tab" data-bs-target="#me" type="button"
+                    role="tab" aria-controls="me" aria-selected="true">Me</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link" id="know-tab" data-bs-toggle="tab" data-bs-target="#iknow" type="button"
+                    role="tab" aria-controls="iknow" aria-selected="false">Someone I Know</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link" id="hear-tab" data-bs-toggle="tab" data-bs-target="#ihear" type="button"
+                    role="tab" aria-controls="ihear" aria-selected="false">Someone I Heard</button>
+                </li>
+              </ul>
+              <!-- These are tabs contents -->
+              <div class="tab-content" id="emergencyTabContent">
+
+                <!-- Me tab content -->
+                <div class="tab-pane fade show active" id="me" role="tabpanel" aria-labelledby="me-tab">
+                  <p>Click below in order to share your coordinates</p>
+                  <button type="button" data-bs-toggle="collapse" data-bs-target="#coordinates"
+                    class="btn btn-success">Locate Me</button>
+                  <p class="collapse" id="coordinates"> Your coordinates: 38.827786, -77.305302 </p>
+                </div>
+
+                <!-- someone i know tab content -->
+                <div class="tab-pane fade" id="iknow" role="tabpanel" aria-labelledby="iknow-tab">
+
+                  <div class="form-floating">
+                    <textarea class="form-control" id="floatingTextarea1"
+                      placeholder="Enter your first and last name"></textarea>
+                    <label for="floatingTextarea1">Your first and last name</label>
+                  </div>
+
+                  <div class="form-floating">
+                    <textarea class="form-control" id="floatingTextarea1"
+                      placeholder="Enter full name of the person you know"></textarea>
+                    <label for="floatingTextarea1">First and last name of the person you know</label>
+                  </div>
+
+                  <p>Click below in order to share your coordinates (for security reasons)</p>
+                  <button type="button" data-bs-toggle="collapse" data-bs-target="#coordinates"
+                    class="btn btn-success">Locate Me</button>
+                  <p class="collapse" id="coordinates"> Your coordinates: 38.827786, -77.305302 </p>
+
+                  <p>Choose the location from map you heard the voice</p>
+                  <button type="button" data-bs-toggle="collapse" data-bs-target="#coordinates"
+                    class="btn btn-success">Open Map</button>
+
+                  <div class="form-group">
+                    <label for="addressArea">Or enter the address manually</label>
+                    <textarea class="form-control" id="addressArea" rows="3"></textarea>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="details">Share details (optional)</label>
+                    <textarea class="form-control" id="details" rows="3"></textarea>
+                  </div>
+                </div>
+
+                <!-- someone i heard tab content -->
+                <div class="tab-pane fade" id="ihear" role="tabpanel" aria-labelledby="ihear-tab">
+
+                  <div class="form-floating">
+                    <textarea class="form-control" id="floatingTextarea1"
+                      placeholder="Enter your first and last name"></textarea>
+                    <label for="floatingTextarea1">Your first and last name</label>
+                  </div>
+
+                  <p>Click below to share your coordinates (for security reasons)</p>
+                  <button type="button" data-bs-toggle="collapse" data-bs-target="#coordinates"
+                    class="btn btn-success">Locate Me</button>
+                  <p class="collapse" id="coordinates"> Your coordinates: 38.827786, -77.305302 </p>
+
+                  <p>Choose the location from map you heard the voice</p>
+                  <button type="button" data-bs-toggle="collapse" data-bs-target="#coordinates"
+                    class="btn btn-success">Open Map</button>
+
+                  <div class="form-group">
+                    <label for="addressArea">Or enter the address manually</label>
+                    <textarea class="form-control" id="addressArea" rows="3"></textarea>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="details">Share details (optional)</label>
+                    <textarea class="form-control" id="details" rows="3"></textarea>
+                  </div>
+
+                </div>
+              </div>
+            </form>
+          </div>
+
+          <div class="modal-footer">
+            <!-- Submission button -->
+            <button id="emergencyFormSubmit" type="button" class="btn btn-primary" data-bs-dismiss="modal">Review &
+              Submit</button>
+            <!-- We can give a prompt saying form is submitted successfully or give an error message -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Inspection inquiry div -->
+    <div class="modal fade modal-lg" id="inspectionInquiryModal" tabindex="-1"
+      aria-labelledby="inspectionInquiryModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="inspectionInquiryModalLabel">Get your property verified</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div>
+              <p>
+                Did you know? Houses built before 1980 are more vulnerable to earthquake damage,
+                because they were built before modern seismic building codes were in place.
+                Request an inspection if you own an older home, or would like to get your home verified for resilience
+                against
+                earthquakes.
+              </p>
+            </div>
+            <form>
+              <div class="form-group">
+                <label for="inspectionFirstName">First name</label>
+                <input type="text" class="form-control" id="inspectionFirstName"></input type="text">
+              </div>
+              <div class="form-group">
+                <label for="inspectionLastName">Last name</label>
+                <input type="text" class="form-control" id="inspectionLastName"></input type="text">
+              </div>
+              <div class="form-group">
+                <label for="inputContact">Contact</label>
+                <input type="number" class="form-control" id="inputContact">
+              </div>
+              <div>
+                House Type
+                <a target="_blank" href="https://www.californiaresidentialmitigationprogram.com/Strengthen-Your-House">
+                  <svg id="houseTypeIcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                    <!--! Font Awesome Pro 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                    <path
+                      d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM216 336h24V272H216c-13.3 0-24-10.7-24-24s10.7-24 24-24h48c13.3 0 24 10.7 24 24v88h8c13.3 0 24 10.7 24 24s-10.7 24-24 24H216c-13.3 0-24-10.7-24-24s10.7-24 24-24zm40-208a32 32 0 1 1 0 64 32 32 0 1 1 0-64z" />
+                  </svg>
+                </a>
+                <select class="form-select" aria-label="Default select example">
+                  <option selected>Select</option>
+                  <option value="1">Raised foundation</option>
+                  <option value="2">Living space over garage</option>
+                  <option value="3">Post and pier</option>
+                  <option value="4">Hillside house</option>
+                  <option value="5">Mobilehomes and manufactured homes</option>
+                  <option value="6">Chimneys and fireplaces</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="inputAddress">Address</label>
+                <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+              </div>
+              <div class="form-group">
+                <label for="inputCity">City</label>
+                <input type="text" class="form-control" id="inputCity">
+              </div>
+              <div class="form-group">
+                <label for="inputState">State</label>
+                <select id="inputState" class="form-control">
+                  <option selected>Choose...</option>
+                  <option>...</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="inputZip">Zip</label>
+                <input type="text" class="form-control" id="inputZip">
+              </div>
+            </form>
+          </div>
+
+          <div class="modal-footer">
+            <!-- Submission button -->
+            <button id="inspectionSubmit" type="button" class="btn btn-primary" data-bs-dismiss="modal">Review &
+              Submit</button>
+            <!-- We can give a prompt saying form is submitted successfully or give an error message -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Latest earthquakes -->
+
+    <!-- Inspection inquiry div -->
+    <div class="modal fade modal-xl" id="latestEarthquakesModal" tabindex="-1"
+      aria-labelledby="latestEarthquakesModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="latestEarthquakesModalLabel">Earhquake Latest Data</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+          </div>
+          <iframe id="latestEarthquakeIframe" src="https://seismo.berkeley.edu/map/index.html" frameborder="0"></iframe>
+          <div class="modal-footer">
+            <!-- Submission button -->
+            <button id="inspectionSubmit" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <!-- We can give a prompt saying form is submitted successfully or give an error message -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Table with latest data -->
+  <hr class="border border-dark border-2 opacity-50">
+
+  <div class="container">
+    <div class="row">
+      <div style="text-align: center;">
+        <h3>Latest M3+ Earthquakes</h3>
+        <table class="table table-dark table-striped">
+          <thead>
+            <tr>
+              <th scope="col">Citizen testimonies</th>
+              <th scope="col">Date & Time (UTC)</th>
+              <th scope="col">Latitude</th>
+              <th scope="col">Longitude</th>
+              <th scope="col">Depth</th>
+              <th scope="col">Magnitude</th>
+              <th scope="col">Region Name</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="table-secondary">
+              <td>
+                5
+              </td>
+              <td>
+                2023-02-20 19:40:02.4
+              </td>
+              <td>36.2 N</td>
+              <td>36.03 E</td>
+              <td>2</td>
+              <td>3.6</td>
+              <td>TURKEY-SYRIA BORDER REGION</td>
+            </tr>
+            <tr class="table-danger">
+              <td>
+                3604
+              </td>
+              <td>
+                2023-02-20 17:04:29.0
+              </td>
+              <td>36.13 N</td>
+              <td>36.04 E</td>
+              <td>10</td>
+              <td>6.4</td>
+              <td>TURKEY-SYRIA BORDER REGION</td>
+            </tr>
+            <tr class="table-secondary">
+              <td>
+                0
+              </td>
+              <td>
+                2023-02-20 12:19:16.7
+              </td>
+              <td>39.50 S</td>
+              <td>174.21 E</td>
+              <td>185</td>
+              <td>3.2</td>
+              <td>NORTH ISLAND OF NEW ZEALAND</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <!-- Footer -->
+  <div class="footer-divider"></div>
+  <div class="container footer">
+    <footer class="py-5">
+      <div class="row">
+        <div class="col-6 col-md-2 mb-3">
+          <h5>National Risk Index</h5>
+          <ul class="nav flex-column">
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Home</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Learn More</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Take Action</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Get Help</a></li>
+          </ul>
+        </div>
+        <div class="col-6 col-md-2 mb-3">
+          <h5>EQCS Resources</h5>
+          <ul class="nav flex-column">
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">No Fear Act Data</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Download Plugins</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Privacy Policy</a></li>
+          </ul>
+        </div>
+        <div class="col-6 col-md-2 mb-3">
+          <h5>Partner sites</h5>
+          <ul class="nav flex-column">
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Ready.gov</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">DHS.gov</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">FEMA.gov</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">USA.gov</a></li>
+          </ul>
+        </div>
+
+        <div class="col-md-5 offset-md-1 mb-3">
           <form>
-            <!-- These are tabs:  Me/sm iknow/ sm i heard vs. -->
-            <p>Who is in danger?</p>
-            <ul class="nav nav-tabs" id="emergencyTab" role="tablist">
-              <li class="nav-item" role="presentation">
-                <button class="nav-link active" id="me-tab" data-bs-toggle="tab" data-bs-target="#me" type="button"
-                  role="tab" aria-controls="me" aria-selected="true">Me</button>
-              </li>
-              <li class="nav-item" role="presentation">
-                <button class="nav-link" id="know-tab" data-bs-toggle="tab" data-bs-target="#iknow" type="button"
-                  role="tab" aria-controls="iknow" aria-selected="false">Someone I Know</button>
-              </li>
-              <li class="nav-item" role="presentation">
-                <button class="nav-link" id="hear-tab" data-bs-toggle="tab" data-bs-target="#ihear" type="button"
-                  role="tab" aria-controls="ihear" aria-selected="false">Someone I Heard</button>
-              </li>
-            </ul>
-            <!-- These are tabs contents -->
-            <div class="tab-content" id="emergencyTabContent">
-
-              <!-- Me tab content -->
-              <div class="tab-pane fade show active" id="me" role="tabpanel" aria-labelledby="me-tab">
-                <p>Click below in order to share your coordinates</p>
-                <button type="button" data-bs-toggle="collapse" data-bs-target="#coordinates"
-                  class="btn btn-success">Locate Me</button>
-                <p class="collapse" id="coordinates"> Your coordinates: 38.827786, -77.305302 </p>
-              </div>
-
-              <!-- someone i know tab content -->
-              <div class="tab-pane fade" id="iknow" role="tabpanel" aria-labelledby="iknow-tab">
-
-                <div class="form-floating">
-                  <textarea class="form-control" id="floatingTextarea1"
-                    placeholder="Enter your first and last name"></textarea>
-                  <label for="floatingTextarea1">Your first and last name</label>
-                </div>
-
-                <div class="form-floating">
-                  <textarea class="form-control" id="floatingTextarea1"
-                    placeholder="Enter full name of the person you know"></textarea>
-                  <label for="floatingTextarea1">First and last name of the person you know</label>
-                </div>
-
-                <p>Click below in order to share your coordinates (for security reasons)</p>
-                <button type="button" data-bs-toggle="collapse" data-bs-target="#coordinates"
-                  class="btn btn-success">Locate Me</button>
-                <p class="collapse" id="coordinates"> Your coordinates: 38.827786, -77.305302 </p>
-
-                <p>Choose the location from map you heard the voice</p>
-                <button type="button" data-bs-toggle="collapse" data-bs-target="#coordinates"
-                  class="btn btn-success">Open Map</button>
-
-                <div class="form-group">
-                  <label for="addressArea">Or enter the address manually</label>
-                  <textarea class="form-control" id="addressArea" rows="3"></textarea>
-                </div>
-
-                <div class="form-group">
-                  <label for="details">Share details (optional)</label>
-                  <textarea class="form-control" id="details" rows="3"></textarea>
-                </div>
-              </div>
-
-              <!-- someone i heard tab content -->
-              <div class="tab-pane fade" id="ihear" role="tabpanel" aria-labelledby="ihear-tab">
-
-                <div class="form-floating">
-                  <textarea class="form-control" id="floatingTextarea1"
-                    placeholder="Enter your first and last name"></textarea>
-                  <label for="floatingTextarea1">Your first and last name</label>
-                </div>
-
-                <p>Click below to share your coordinates (for security reasons)</p>
-                <button type="button" data-bs-toggle="collapse" data-bs-target="#coordinates"
-                  class="btn btn-success">Locate Me</button>
-                <p class="collapse" id="coordinates"> Your coordinates: 38.827786, -77.305302 </p>
-
-                <p>Choose the location from map you heard the voice</p>
-                <button type="button" data-bs-toggle="collapse" data-bs-target="#coordinates"
-                  class="btn btn-success">Open Map</button>
-
-                <div class="form-group">
-                  <label for="addressArea">Or enter the address manually</label>
-                  <textarea class="form-control" id="addressArea" rows="3"></textarea>
-                </div>
-
-                <div class="form-group">
-                  <label for="details">Share details (optional)</label>
-                  <textarea class="form-control" id="details" rows="3"></textarea>
-                </div>
-
-              </div>
+            <h5>Subscribe to stay updated</h5>
+            <div class="d-flex flex-column flex-sm-row w-100 gap-2">
+              <label for="newsletter1" class="visually-hidden">Email address</label>
+              <input id="newsletter1" type="text" class="form-control" placeholder="Email address">
+              <button class="btn btn-primary" type="button">Subscribe</button>
             </div>
           </form>
         </div>
-        
-        <div class="modal-footer">
-          <!-- Submission button -->
-          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Review & Submit</button>
-          <!-- We can give a prompt saying form is submitted successfully or give an error message -->
-        </div>
       </div>
-    </div>
 
+      <div class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top">
+        <p>© EQCS</p>
+        <ul class="list-unstyled d-flex">
+          <li class="ms-3"><a class="link-dark" href="#"><svg class="bi" width="24" height="24">
+                <use xlink:href="#twitter"></use>
+              </svg></a></li>
+          <li class="ms-3"><a class="link-dark" href="#"><svg class="bi" width="24" height="24">
+                <use xlink:href="#instagram"></use>
+              </svg></a></li>
+          <li class="ms-3"><a class="link-dark" href="#"><svg class="bi" width="24" height="24">
+                <use xlink:href="#facebook"></use>
+              </svg></a></li>
+        </ul>
+      </div>
+    </footer>
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"

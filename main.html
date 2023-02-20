@@ -12,14 +12,37 @@
 
 <body>
 
-  <nav class="navbar navbar-dark bg-dark ">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <a class="navbar-brand " href="#">EQCS</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <button type="button" data-bs-toggle="modal" data-bs-target="#emergencyModal1" id="emergency"
+          class="btn btn-danger">Earthquake Emergency</button>
+        </li>
+        <li class="nav-item">
+          <button type="button" id="inspection" class="btn btn-secondary" data-bs-target="#inspectionInquiryModal" data-bs-toggle="modal">
+            Inspection Inquiry
+          </button>
+        </li>
+        <li class="nav-item dropdown">
+          <button type="button" id="eq-info" class="btn btn-secondary" data-bs-target="#latestEarthquakesModal" data-bs-toggle="modal">
+            Latest Earthquakes
+          </button>
+        </li>
+      </ul>
+    </div>
   </nav>
 
+  <div style="width: 100%; height: 100vh;">
   <div class="container text-center">
 
     <!-- Main Functionalities -->
-    <div class="row" id="mainButtons">
+    <!-- <div class="row" id="mainButtons">
       <div class="col">
         <button type="button" data-bs-toggle="modal" data-bs-target="#emergencyModal1" id="emergency"
           class="btn btn-danger">Earthquake Emergency</button>
@@ -34,7 +57,7 @@
           Latest Earthquakes
         </button>
       </div>
-    </div>
+    </div> -->
 
     <!-- Just put this random image to fill the space up, you can change the design -->
     <div class="row">
@@ -42,7 +65,7 @@
       </div>
       <div class="col-8 ">
         <h4>Earthquake Risk Map</h4>
-        <img id="theMap" src="./images/1.jpg" class="d-block w-100">
+        <img id="theMap" src="./images/map-earthquake_risk.png" class="d-block w-100">
       </div>
       <div class="col-2 ">
       </div>
@@ -262,6 +285,61 @@
         </div>
       </div>
     </div>
+  </div>
+</div>
+  <div class="footer-divider"></div>
+
+  <div class="container footer">
+    <footer class="py-5">
+      <div class="row">
+        <div class="col-6 col-md-2 mb-3">
+          <h5>National Risk Index</h5>
+          <ul class="nav flex-column">
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Home</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Learn More</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Take Action</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Get Help</a></li>
+          </ul>
+        </div>
+        <div class="col-6 col-md-2 mb-3">
+          <h5>EQCS Resources</h5>
+          <ul class="nav flex-column">
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">No Fear Act Data</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Download Plugins</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Privacy Policy</a></li>
+          </ul>
+        </div>
+        <div class="col-6 col-md-2 mb-3">
+          <h5>Partner sites</h5>
+          <ul class="nav flex-column">
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Ready.gov</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">DHS.gov</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">FEMA.gov</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">USA.gov</a></li>
+          </ul>
+        </div>
+  
+        <div class="col-md-5 offset-md-1 mb-3">
+          <form>
+            <h5>Subscribe to stay updated</h5>
+            <div class="d-flex flex-column flex-sm-row w-100 gap-2">
+              <label for="newsletter1" class="visually-hidden">Email address</label>
+              <input id="newsletter1" type="text" class="form-control" placeholder="Email address">
+              <button class="btn btn-primary" type="button">Subscribe</button>
+            </div>
+          </form>
+        </div>
+      </div>
+  
+      <div class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top">
+        <p>© EQCS</p>
+        <ul class="list-unstyled d-flex">
+          <li class="ms-3"><a class="link-dark" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#twitter"></use></svg></a></li>
+          <li class="ms-3"><a class="link-dark" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#instagram"></use></svg></a></li>
+          <li class="ms-3"><a class="link-dark" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#facebook"></use></svg></a></li>
+        </ul>
+      </div>
+    </footer>
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"

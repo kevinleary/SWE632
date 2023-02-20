@@ -1,3 +1,7 @@
+body {
+    background-color: #ededed;
+}
+
 .navbar-brand {
     margin-left: 1%;
 }
@@ -8,6 +12,10 @@
 
 .nav {
     margin-bottom: 2%;
+}
+
+#navbarSupportedContent li {
+    margin-left: 2em;
 }
 
 #mainButtons {
@@ -24,4 +32,12 @@
 
 #latestEarthquakeIframe {
     height: 500px;
+}
+
+.footer-divider {
+    height: 3rem;
+    background-color: rgba(0, 0, 0, .1);
+    border: solid rgba(0, 0, 0, .15);
+    border-width: 1px 0;
+    box-shadow: inset 0 0.5em 1.5em rgb(0 0 0 / 10%), inset 0 0.125em 0.5em rgb(0 0 0 / 15%);
 }

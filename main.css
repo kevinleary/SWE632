@@ -49,6 +49,28 @@ body {
     justify-content: center;
 }
 
+#homeCheck #introHeader {
+    margin-top: 30px;
+    margin-bottom: 40px;
+}
+
+#homeCheck #introHeader h2{
+    margin-bottom: 10px;
+    /* color: gray; */
+}
+
+#homeCheck .card{
+    background-color: #e7e7e8;
+}
+
+#homeCheck #stats-section .card{
+    height: 120px;
+}
+
+#homeCheck #introHeader h6{
+   color: darkgray;
+}
+
 #homeCheck #homeTab {
     text-align: center;
 }
@@ -61,4 +83,22 @@ body {
     width: 100%;
     height: 12rem;
     object-fit: cover;
+}
+
+#homeCheck #inspection-offer-div {
+    margin-top: 30px;
+}
+
+#homeCheck #inspection-offer-div h6{
+    color: grey;
+}
+
+#homeCheck #inspection-offer-div p{
+    color: darkgray;
+}
+
+#homeCheck #partnersCard img {
+    height: 50px;
+    width: 50px;
+    padding: 5px;
 }

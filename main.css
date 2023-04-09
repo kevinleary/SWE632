@@ -64,7 +64,7 @@ body {
 }
 
 #homeCheck #stats-section .card{
-    height: 120px;
+    min-height: 120px;
 }
 
 #homeCheck #introHeader h6{

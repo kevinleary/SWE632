@@ -102,3 +102,8 @@ body {
     width: 50px;
     padding: 5px;
 }
+
+#homeCheck #homeCheckForm .form-error {
+    color: red;
+    display: none;
+}

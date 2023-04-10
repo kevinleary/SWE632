@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inspection@EQCS</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="main.css">
+    <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script defer src="mainScript.js"></script>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand " href="./main.html">EQCS</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+        
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                  <a href="./main.html" class="nav-link">Information</a>
+                </li>
+                <li class="nav-item">
+                  <a data-bs-toggle="modal" data-bs-target="#emergencyModal1" id="emergency" class="nav-link">Earthquake Emergency</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" id="inspection" href="./houseCheck.html">Inspection Inquiry</a>
+                </li>
+                <li class="nav-item dropdown">
+                  <a id="eq-info" class="nav-link" data-bs-target="#latestEarthquakesModal"
+                    data-bs-toggle="modal">
+                    Latest Earthquakes
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+    </header>
+    <section>
+        <div class="container" id="homeCheck">
+            <div class="row main-row">
+                <div class="col col-md-10">
+                    <ul class="nav nav-pills nav-fill" id="pills-tab" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill"
+                                data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home"
+                                aria-selected="true">Home</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill"
+                                data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile"
+                                aria-selected="false">Identify your house type</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill"
+                                data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact"
+                                aria-selected="false">Request an inspection</button>
+                        </li>
+                    </ul>
+                    <div class="tab-content" id="homeTab">
+                        <div class="tab-pane fade show active" id="pills-home" role="tabpanel"
+                            aria-labelledby="pills-home-tab">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col" id="introHeader">
+                                        <h2>PROTECT YOUR HOME FROM EARTHQUAKE DAMAGE</h2>
+                                        <h6>
+                                            Did you know? Houses built before 1980 are more vulnerable to earthquake
+                                            damage,
+                                            because they were built before modern seismic building codes were in place.
+                                            If
+                                            you own an older home, visit the EQCS website to learn how to strengthen it
+                                            to
+                                            make it more resilient against
+                                            earthquake shaking.
+                                        </h6>
+                                    </div>
+                                </div>
+                                <div class="row" id="stats-section">
+                                    <div class="col-sm-3">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <h5 class="card-title">23,408</h5>
+                                                <h6 class="card-subtitle mb-2 text-muted">Homes damaged in 1989 Loma
+                                                    Prieta earthquake</h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <h5 class="card-title">$20B</h5>
+                                                <h6 class="card-subtitle mb-2 text-muted">Amount of property damage
+                                                    caused by 1994 Northridge earthquake</h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <h5 class="card-title">30</h5>
+                                                <h6 class="card-subtitle mb-2 text-muted">Most Californians live within
+                                                    30 miles of an active fault
+                                                </h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <h5 class="card-title">$3,000</h5>
+                                                <h6 class="card-subtitle mb-2 text-muted">Amount Earthquake Brace + Bolt
+                                                    offers toward a seismic retrofit
+                                                </h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row" id="inspection-offer-div" style="margin-top: 30px;">
+                                    <div class="col">
+                                        <h5>IS YOUR HOUSE READY FOR AN EARTHQUAKE?</h5>
+                                        <p>A house isn't just a place where you reside, it's your home. Identify
+                                            possible
+                                            risks to your house in the next damaging earthquake. By requesting a home
+                                            inspection.</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-12 col-md-7 col-lg-10">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <h5 class="card-title">We can help you</h5>
+                                                <h6 class="card-subtitle mb-2 text-muted">
+                                                    <ul>
+                                                        <li>Protect the inside of your home, including securing your
+                                                            water
+                                                            heater according to state laws.</li>
+                                                        <li>Know your geologic hazards, such as ground shaking and
+                                                            liquefaction, that could damage your property.</li>
+                                                        <li>Understand your home type to know its potential structural
+                                                            risks, and how to prevent damage.</li>
+                                                        <li>Create an earthquake safety plan for you and loved ones,
+                                                            including pets.</li>
+                                                        <li>Identify safe places in each room of your home.</li>
+                                                        <li>Practice Drop, Cover, and Hold On with each member of your
+                                                            household.</li>
+                                                    </ul>
+                                                </h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-12 col-md-5 col-lg-2">
+                                        <div class="card" id="partnersCard">
+                                            <div class="card-body">
+                                                <h5 class="card-title">Our partners</h5>
+                                                <h6 class="card-subtitle"
+                                                    style="display: flex; justify-content: space-around;flex-wrap: wrap;">
+                                                    <img src="./images/houseTypes/ssa.png" alt="">
+                                                    <img src="./images/houseTypes/nset.png" alt="">
+                                                    <img src="./images/houseTypes/cea.jpeg" alt="">
+                                                </h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="pills-profile" role="tabpanel"
+                            aria-labelledby="pills-profile-tab">
+                            <div class="container">
+                                <div class="row card-row">
+                                    <div class="col-sm-6">
+                                        <div class="card">
+                                            <div class="row g-0">
+                                                <div class="col-md-4">
+                                                    <img src="./images/houseTypes/raisedFoundation.jpeg"
+                                                        class="img-fluid rounded-start" alt="...">
+                                                </div>
+                                                <div class="col-md-8">
+                                                    <div class="card-body">
+                                                        <h5 class="card-title">Raised Foundation</h5>
+                                                        <p class="card-text">Older houses with steps up to the first
+                                                            floor
+                                                            can shift off their foundations from shaking. They would be
+                                                            strengthened by bolting or bracing and bolting the house to
+                                                            its
+                                                            foundation.</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="card">
+                                            <div class="row g-0">
+                                                <div class="col-md-4">
+                                                    <img height="20px"
+                                                        src="./images/houseTypes/livingSpaceOverGarage.jpeg"
+                                                        class="img-fluid rounded-start" alt="...">
+                                                </div>
+                                                <div class="col-md-8">
+                                                    <div class="card-body">
+                                                        <h5 class="card-title">Living Space over garage</h5>
+                                                        <p class="card-text">Houses with one or more floors of living
+                                                            space
+                                                            over an attached garage are vulnerable to shaking.
+                                                            Retrofitting
+                                                            the garage space can make it more resistant to earthquakes.
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row card-row">
+                                    <div class="col-sm-6">
+                                        <div class="card mb-3">
+                                            <div class="row g-0">
+                                                <div class="col-md-4">
+                                                    <img src="./images/houseTypes/postAndPier.jpeg"
+                                                        class="img-fluid rounded-start" alt="...">
+                                                </div>
+                                                <div class="col-md-8">
+                                                    <div class="card-body">
+                                                        <h5 class="card-title">Post & Pier</h5>
+                                                        <p class="card-text">A house without a continuous perimeter
+                                                            foundation can shift or collapse in an earthquake. Adding a
+                                                            foundation that is braced and bolted will strengthen the
+                                                            house.
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="card">
+                                            <div class="row g-0">
+                                                <div class="col-md-4">
+                                                    <img height="20px" src="./images/houseTypes/hillside.jpeg"
+                                                        class="img-fluid rounded-start" alt="...">
+                                                </div>
+                                                <div class="col-md-8">
+                                                    <div class="card-body">
+                                                        <h5 class="card-title">Hillside House</h5>
+                                                        <p class="card-text">Houses built on hillsides can suffer from
+                                                            specific vulnerabilities, and may need to be strengthened in
+                                                            several ways to be properly braced against earthquakes.</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row card-row">
+                                    <div class="col-sm-6">
+                                        <div class="card mb-3">
+                                            <div class="row g-0">
+                                                <div class="col-md-4">
+                                                    <img src="./images/houseTypes/manufactured.jpeg"
+                                                        class="img-fluid rounded-start" alt="...">
+                                                </div>
+                                                <div class="col-md-8">
+                                                    <div class="card-body">
+                                                        <h5 class="card-title">Mobilehomes and manufactured homes</h5>
+                                                        <p class="card-text">These types of homes can slide off their
+                                                            support systems during an earthquake. They can be
+                                                            strengthened
+                                                            against shaking with a seismic bracing system.
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="card">
+                                            <div class="row g-0">
+                                                <div class="col-md-4">
+                                                    <img height="20px" src="./images/houseTypes/chimney.jpeg"
+                                                        class="img-fluid rounded-start" alt="...">
+                                                </div>
+                                                <div class="col-md-8">
+                                                    <div class="card-body">
+                                                        <h5 class="card-title">Chimneys and fireplaces</h5>
+                                                        <p class="card-text">Older chimneys can crack and fall away from
+                                                            the
+                                                            house during or after an earthquake. And brick, stone, or
+                                                            decorative fireplace components can be a hazard, inside.</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="pills-contact" role="tabpanel"
+                            aria-labelledby="pills-contact-tab">
+                            <div id="homeCheckForm">
+                                <form class="row g-3" id="homeInspectionForm">
+                                    <div class="col-md-6">
+                                        <label for="inputFirstName" class="form-label">
+                                            First Name
+                                            <span class="form-error" id="inputFirstNameError">Required</span>
+                                        </label>
+                                        <input type="text" class="form-control" id="inputFirstName">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="inputLastName" class="form-label">
+                                            Last Name
+                                            <span class="form-error" id="inputLastNameError">Required</span>
+                                        </label>
+                                        <input type="text" class="form-control" id="inputLastName">
+                                    </div>
+                                    <div class="col-12">
+                                        <label for="inputEmail4" class="form-label">
+                                            Email
+                                            <span class="form-error" id="inputEmail4Error">Required</span>
+                                        </label>
+                                        <input type="email" class="form-control" id="inputEmail4">
+                                    </div>
+                                    <div class="col-12">
+                                        <label for="houseType" class="form-label">
+                                            House Type
+                                            <span class="form-error" id="houseTypeError">Required</span>
+                                        </label>
+                                        <select class="form-select" id="houseType" aria-label="Select">
+                                            <option selected>Select</option>
+                                            <option value="1">Raised foundation</option>
+                                            <option value="2">Living space over garage</option>
+                                            <option value="3">Post and pier</option>
+                                            <option value="4">Hillside house</option>
+                                            <option value="5">Mobilehomes and manufactured homes</option>
+                                            <option value="6">Chimneys and fireplaces</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-12">
+                                        <label for="inputAddress" class="form-label">
+                                            Address
+                                            <span class="form-error" id="inputAddressError">Required</span>
+                                        </label>
+                                        <input type="text" class="form-control" id="inputAddress"
+                                            placeholder="1234 Main St">
+                                    </div>
+                                    <div class="col-12">
+                                        <label for="inputAddress2" class="form-label">Address 2</label>
+                                        <input type="text" class="form-control" id="inputAddress2"
+                                            placeholder="Apartment, studio, or floor">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="inputCity" class="form-label">
+                                            City
+                                            <span class="form-error" id="inputCityError">Required</span>
+                                        </label>
+                                        <input type="text" class="form-control" id="inputCity">
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label for="inputState" class="form-label">
+                                            State
+                                            <span class="form-error" id="inputStateError">Required</span>
+                                        </label>
+                                        <select id="inputState" class="form-select">
+                                            <option value="" selected="selected" disabled>Select a State</option>
+                                            <option value="AL">Alabama</option>
+                                            <option value="AK">Alaska</option>
+                                            <option value="AZ">Arizona</option>
+                                            <option value="AR">Arkansas</option>
+                                            <option value="CA">California</option>
+                                            <option value="CO">Colorado</option>
+                                            <option value="CT">Connecticut</option>
+                                            <option value="DE">Delaware</option>
+                                            <option value="DC">District Of Columbia</option>
+                                            <option value="FL">Florida</option>
+                                            <option value="GA">Georgia</option>
+                                            <option value="HI">Hawaii</option>
+                                            <option value="ID">Idaho</option>
+                                            <option value="IL">Illinois</option>
+                                            <option value="IN">Indiana</option>
+                                            <option value="IA">Iowa</option>
+                                            <option value="KS">Kansas</option>
+                                            <option value="KY">Kentucky</option>
+                                            <option value="LA">Louisiana</option>
+                                            <option value="ME">Maine</option>
+                                            <option value="MD">Maryland</option>
+                                            <option value="MA">Massachusetts</option>
+                                            <option value="MI">Michigan</option>
+                                            <option value="MN">Minnesota</option>
+                                            <option value="MS">Mississippi</option>
+                                            <option value="MO">Missouri</option>
+                                            <option value="MT">Montana</option>
+                                            <option value="NE">Nebraska</option>
+                                            <option value="NV">Nevada</option>
+                                            <option value="NH">New Hampshire</option>
+                                            <option value="NJ">New Jersey</option>
+                                            <option value="NM">New Mexico</option>
+                                            <option value="NY">New York</option>
+                                            <option value="NC">North Carolina</option>
+                                            <option value="ND">North Dakota</option>
+                                            <option value="OH">Ohio</option>
+                                            <option value="OK">Oklahoma</option>
+                                            <option value="OR">Oregon</option>
+                                            <option value="PA">Pennsylvania</option>
+                                            <option value="RI">Rhode Island</option>
+                                            <option value="SC">South Carolina</option>
+                                            <option value="SD">South Dakota</option>
+                                            <option value="TN">Tennessee</option>
+                                            <option value="TX">Texas</option>
+                                            <option value="UT">Utah</option>
+                                            <option value="VT">Vermont</option>
+                                            <option value="VA">Virginia</option>
+                                            <option value="WA">Washington</option>
+                                            <option value="WV">West Virginia</option>
+                                            <option value="WI">Wisconsin</option>
+                                            <option value="WY">Wyoming</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <label for="inputZip" class="form-label">
+                                            Zip
+                                            <span class="form-error" id="inputZipError">Required</span>
+                                        </label>
+                                        <input type="number" class="form-control" id="inputZip">
+                                    </div>
+                                    <div class="col-12">
+                                        <button class="btn btn-primary">Submit</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+  <!-- <div class="footer-divider"></div> -->
+  <hr>
+  <div class="container footer">
+    <footer class="py-5">
+      <div class="row">
+        <div class="col-6 col-md-2 mb-3">
+          <h5>National Risk Index</h5>
+          <ul class="nav flex-column">
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Home</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Learn More</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Take Action</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Get Help</a></li>
+          </ul>
+        </div>
+        <div class="col-6 col-md-2 mb-3">
+          <h5>EQCS Resources</h5>
+          <ul class="nav flex-column">
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">No Fear Act Data</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Download Plugins</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Privacy Policy</a></li>
+          </ul>
+        </div>
+        <div class="col-6 col-md-2 mb-3">
+          <h5>Partner sites</h5>
+          <ul class="nav flex-column">
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Ready.gov</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">DHS.gov</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">FEMA.gov</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">USA.gov</a></li>
+          </ul>
+        </div>
+
+        <div class="col-md-5 offset-md-1 mb-3">
+          <form>
+            <h5>Subscribe to stay updated</h5>
+            <div class="d-flex flex-column flex-sm-row w-100 gap-2">
+              <label for="newsletter1" class="visually-hidden">Email address</label>
+              <input id="newsletter1" type="text" class="form-control" placeholder="Email address">
+              <button class="btn btn-primary" type="button">Subscribe</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top">
+        <p>© EQCS</p>
+        <ul class="list-unstyled d-flex">
+          <li class="ms-3"><a class="link-dark" href="#"><svg class="bi" width="24" height="24">
+                <use xlink:href="#twitter"></use>
+              </svg></a></li>
+          <li class="ms-3"><a class="link-dark" href="#"><svg class="bi" width="24" height="24">
+                <use xlink:href="#instagram"></use>
+              </svg></a></li>
+          <li class="ms-3"><a class="link-dark" href="#"><svg class="bi" width="24" height="24">
+                <use xlink:href="#facebook"></use>
+              </svg></a></li>
+        </ul>
+      </div>
+    </footer>
+
+
+    <!-- This part is the Earthquake Emergency Pop-up -->
+    <div class="modal fade" id="emergencyModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Earthquake Rescue Team Request</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <form>
+                <!-- These are tabs:  Me/sm iknow/ sm i heard vs. -->
+                <p>Who is in danger?</p>
+                <ul class="nav nav-tabs" id="emergencyTab" role="tablist">
+                  <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="me-tab" data-bs-toggle="tab" data-bs-target="#me" type="button"
+                      role="tab" aria-controls="me" aria-selected="true">Me</button>
+                  </li>
+                  <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="know-tab" data-bs-toggle="tab" data-bs-target="#iknow" type="button"
+                      role="tab" aria-controls="iknow" aria-selected="false">Someone I Know</button>
+                  </li>
+                  <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="hear-tab" data-bs-toggle="tab" data-bs-target="#ihear" type="button"
+                      role="tab" aria-controls="ihear" aria-selected="false">Someone I Heard</button>
+                  </li>
+                </ul>
+                <!-- These are tabs contents -->
+                <div class="tab-content" id="emergencyTabContent">
+  
+                  <!-- Me tab content -->
+                  <div class="tab-pane fade show active" id="me" role="tabpanel" aria-labelledby="me-tab">
+                    <p>Click below in order to share your coordinates</p>
+                    <button type="button" data-bs-toggle="collapse" data-bs-target="#coordinates"
+                      class="btn btn-success">Locate Me</button>
+                    <p class="collapse" id="coordinates"> Your coordinates: 38.827786, -77.305302 </p>
+                  </div>
+  
+                  <!-- someone i know tab content -->
+                  <div class="tab-pane fade" id="iknow" role="tabpanel" aria-labelledby="iknow-tab">
+  
+                    <div class="form-floating">
+                      <textarea class="form-control" id="floatingTextarea1"
+                        placeholder="Enter your first and last name"></textarea>
+                      <label for="floatingTextarea1">Your first and last name</label>
+                    </div>
+  
+                    <div class="form-floating">
+                      <textarea class="form-control" id="floatingTextarea1"
+                        placeholder="Enter full name of the person you know"></textarea>
+                      <label for="floatingTextarea1">First and last name of the person you know</label>
+                    </div>
+  
+                    <p>Click below in order to share your coordinates (for security reasons)</p>
+                    <button type="button" data-bs-toggle="collapse" data-bs-target="#coordinates"
+                      class="btn btn-success">Locate Me</button>
+                    <p class="collapse" id="coordinates"> Your coordinates: 38.827786, -77.305302 </p>
+  
+                    <p>Choose the location from map you heard the voice</p>
+                    <button type="button" data-bs-toggle="collapse" data-bs-target="#coordinates"
+                      class="btn btn-success">Open Map</button>
+  
+                    <div class="form-group">
+                      <label for="addressArea">Or enter the address manually</label>
+                      <textarea class="form-control" id="addressArea" rows="3"></textarea>
+                    </div>
+  
+                    <div class="form-group">
+                      <label for="details">Share details (optional)</label>
+                      <textarea class="form-control" id="details" rows="3"></textarea>
+                    </div>
+                  </div>
+  
+                  <!-- someone i heard tab content -->
+                  <div class="tab-pane fade" id="ihear" role="tabpanel" aria-labelledby="ihear-tab">
+  
+                    <div class="form-floating">
+                      <textarea class="form-control" id="floatingTextarea1"
+                        placeholder="Enter your first and last name"></textarea>
+                      <label for="floatingTextarea1">Your first and last name</label>
+                    </div>
+  
+                    <p>Click below to share your coordinates (for security reasons)</p>
+                    <button type="button" data-bs-toggle="collapse" data-bs-target="#coordinates"
+                      class="btn btn-success">Locate Me</button>
+                    <p class="collapse" id="coordinates"> Your coordinates: 38.827786, -77.305302 </p>
+  
+                    <p>Choose the location from map you heard the voice</p>
+                    <button type="button" data-bs-toggle="collapse" data-bs-target="#coordinates"
+                      class="btn btn-success">Open Map</button>
+  
+                    <div class="form-group">
+                      <label for="addressArea">Or enter the address manually</label>
+                      <textarea class="form-control" id="addressArea" rows="3"></textarea>
+                    </div>
+  
+                    <div class="form-group">
+                      <label for="details">Share details (optional)</label>
+                      <textarea class="form-control" id="details" rows="3"></textarea>
+                    </div>
+  
+                  </div>
+                </div>
+              </form>
+            </div>
+  
+            <div class="modal-footer">
+              <!-- Submission button -->
+              <button id="emergencyFormSubmit" type="button" class="btn btn-primary" data-bs-dismiss="modal">Review &
+                Submit</button>
+              <!-- We can give a prompt saying form is submitted successfully or give an error message -->
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Map modal -->
+      <div class="modal fade modal-xl" id="latestEarthquakesModal" tabindex="-1"
+      aria-labelledby="latestEarthquakesModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="latestEarthquakesModalLabel">Earthquake Latest Data</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+          </div>
+          <iframe id="latestEarthquakeIframe" src="https://seismo.berkeley.edu/map/index.html" frameborder="0"></iframe>
+          <div class="modal-footer">
+            <!-- Submission button -->
+            <button id="inspectionSubmit" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <!-- We can give a prompt saying form is submitted successfully or give an error message -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"
+        integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

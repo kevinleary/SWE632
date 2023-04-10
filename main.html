@@ -8,7 +8,7 @@
     integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="main.css">
   <script defer src="mainScript.js"></script>
-  <title>EQCS</title>
+  <title>EQCS: Home</title>
 </head>
 
 <body>
@@ -23,20 +23,19 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <button type="button" data-bs-toggle="modal" data-bs-target="#emergencyModal1" id="emergency"
-            class="btn btn-danger">Earthquake Emergency</button>
+          <a href="./main.html" class="nav-link active">Home</a>
         </li>
         <li class="nav-item">
-          <!-- <button type="button" id="inspection" class="btn btn-secondary"> -->
-            <a class="btn btn-secondary" id="inspection" href="./houseCheck.html">Inspection Inquiry</a>
-            <!-- Inspection Inquiry -->
-          <!-- </button> -->
+          <a data-bs-toggle="modal" data-bs-target="#emergencyModal1" id="emergency" class="nav-link">Earthquake Emergency</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="inspection" href="./houseCheck.html">Inspection Inquiry</a>
         </li>
         <li class="nav-item dropdown">
-          <button type="button" id="eq-info" class="btn btn-secondary" data-bs-target="#latestEarthquakesModal"
+          <a id="eq-info" class="nav-link" data-bs-target="#latestEarthquakesModal"
             data-bs-toggle="modal">
             Latest Earthquakes
-          </button>
+          </a>
         </li>
       </ul>
     </div>

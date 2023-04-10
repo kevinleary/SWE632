@@ -1,0 +1,356 @@
+{
+  "id": "2d6c7a74-484f-45c4-b823-d49169fee67c",
+  "version": "2.0",
+  "name": "EQCS",
+  "url": "http://127.0.0.1:8080/houseCheck.html",
+  "tests": [{
+    "id": "15fbbfc8-6ebb-41e6-90e4-1aa563e44a5b",
+    "name": "Form submit succesful",
+    "commands": [{
+      "id": "ab6367e5-b550-410a-8d5a-fe588b2a48f2",
+      "comment": "",
+      "command": "open",
+      "target": "http://127.0.0.1:8080/houseCheck.html",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "4d437b3a-ed17-44a9-bdb6-b5eb94090c76",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1512x884",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "4615087f-a272-4652-a79c-a62ec2fdebbf",
+      "comment": "",
+      "command": "click",
+      "target": "id=pills-contact-tab",
+      "targets": [
+        ["id=pills-contact-tab", "id"],
+        ["css=#pills-contact-tab", "css:finder"],
+        ["xpath=//button[@id='pills-contact-tab']", "xpath:attributes"],
+        ["xpath=//ul[@id='pills-tab']/li[3]/button", "xpath:idRelative"],
+        ["xpath=//li[3]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Request an inspection')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "dfee70e9-fcfb-4788-929f-2a949d1e67d4",
+      "comment": "",
+      "command": "click",
+      "target": "id=inputFirstName",
+      "targets": [
+        ["id=inputFirstName", "id"],
+        ["css=#inputFirstName", "css:finder"],
+        ["xpath=//input[@id='inputFirstName']", "xpath:attributes"],
+        ["xpath=//form[@id='homeInspectionForm']/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "8d251995-4b12-4cbb-92a8-6ad4ad70c5df",
+      "comment": "",
+      "command": "type",
+      "target": "id=inputFirstName",
+      "targets": [
+        ["id=inputFirstName", "id"],
+        ["css=#inputFirstName", "css:finder"],
+        ["xpath=//input[@id='inputFirstName']", "xpath:attributes"],
+        ["xpath=//form[@id='homeInspectionForm']/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "first"
+    }, {
+      "id": "9b1cf9a0-df29-4fc5-a104-7f1e9f8588c4",
+      "comment": "",
+      "command": "type",
+      "target": "id=inputLastName",
+      "targets": [
+        ["id=inputLastName", "id"],
+        ["css=#inputLastName", "css:finder"],
+        ["xpath=//input[@id='inputLastName']", "xpath:attributes"],
+        ["xpath=//form[@id='homeInspectionForm']/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "last"
+    }, {
+      "id": "fe2e5787-15f3-4d73-86af-0f545a2475d1",
+      "comment": "",
+      "command": "type",
+      "target": "id=inputEmail4",
+      "targets": [
+        ["id=inputEmail4", "id"],
+        ["css=#inputEmail4", "css:finder"],
+        ["xpath=//input[@id='inputEmail4']", "xpath:attributes"],
+        ["xpath=//form[@id='homeInspectionForm']/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": "first@gmu.edu"
+    }, {
+      "id": "87113cfe-b604-4a2f-ba6f-066a0cccb43f",
+      "comment": "",
+      "command": "click",
+      "target": "id=houseType",
+      "targets": [
+        ["id=houseType", "id"],
+        ["css=#houseType", "css:finder"],
+        ["xpath=//select[@id='houseType']", "xpath:attributes"],
+        ["xpath=//form[@id='homeInspectionForm']/div[4]/select", "xpath:idRelative"],
+        ["xpath=//select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "57dca29c-3797-4388-9392-4022904522fe",
+      "comment": "",
+      "command": "select",
+      "target": "id=houseType",
+      "targets": [],
+      "value": "label=Raised foundation"
+    }, {
+      "id": "aaec4d6a-ba3a-46f3-81c8-7478c57db564",
+      "comment": "",
+      "command": "click",
+      "target": "id=inputAddress",
+      "targets": [
+        ["id=inputAddress", "id"],
+        ["css=#inputAddress", "css:finder"],
+        ["xpath=//input[@id='inputAddress']", "xpath:attributes"],
+        ["xpath=//form[@id='homeInspectionForm']/div[5]/input", "xpath:idRelative"],
+        ["xpath=//div[5]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "a432b30d-0406-4ea4-a17c-d091b3a5b12d",
+      "comment": "",
+      "command": "type",
+      "target": "id=inputAddress",
+      "targets": [
+        ["id=inputAddress", "id"],
+        ["css=#inputAddress", "css:finder"],
+        ["xpath=//input[@id='inputAddress']", "xpath:attributes"],
+        ["xpath=//form[@id='homeInspectionForm']/div[5]/input", "xpath:idRelative"],
+        ["xpath=//div[5]/input", "xpath:position"]
+      ],
+      "value": "10606 Main St"
+    }, {
+      "id": "251b98b8-6831-4908-949b-d1e9e51f3b25",
+      "comment": "",
+      "command": "type",
+      "target": "id=inputAddress2",
+      "targets": [
+        ["id=inputAddress2", "id"],
+        ["css=#inputAddress2", "css:finder"],
+        ["xpath=//input[@id='inputAddress2']", "xpath:attributes"],
+        ["xpath=//form[@id='homeInspectionForm']/div[6]/input", "xpath:idRelative"],
+        ["xpath=//div[6]/input", "xpath:position"]
+      ],
+      "value": "J"
+    }, {
+      "id": "2ff73e07-f1c3-4ca5-904e-2c74a65cb956",
+      "comment": "",
+      "command": "type",
+      "target": "id=inputCity",
+      "targets": [
+        ["id=inputCity", "id"],
+        ["css=#inputCity", "css:finder"],
+        ["xpath=//input[@id='inputCity']", "xpath:attributes"],
+        ["xpath=//form[@id='homeInspectionForm']/div[7]/input", "xpath:idRelative"],
+        ["xpath=//div[7]/input", "xpath:position"]
+      ],
+      "value": "Fairfax"
+    }, {
+      "id": "51bc7817-d743-4f94-822b-aac45cbc65d3",
+      "comment": "",
+      "command": "click",
+      "target": "id=inputState",
+      "targets": [
+        ["id=inputState", "id"],
+        ["css=#inputState", "css:finder"],
+        ["xpath=//select[@id='inputState']", "xpath:attributes"],
+        ["xpath=//form[@id='homeInspectionForm']/div[8]/select", "xpath:idRelative"],
+        ["xpath=//div[8]/select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "546ac9b3-f774-4822-8e43-d717a104b5b8",
+      "comment": "",
+      "command": "select",
+      "target": "id=inputState",
+      "targets": [],
+      "value": "label=Virginia"
+    }, {
+      "id": "aa001243-9cca-45c2-b85b-f308cc5403ed",
+      "comment": "",
+      "command": "click",
+      "target": "id=inputZip",
+      "targets": [
+        ["id=inputZip", "id"],
+        ["css=#inputZip", "css:finder"],
+        ["xpath=//input[@id='inputZip']", "xpath:attributes"],
+        ["xpath=//form[@id='homeInspectionForm']/div[9]/input", "xpath:idRelative"],
+        ["xpath=//div[9]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "b87f8ec4-7e66-4e77-b5ed-657ed4be4854",
+      "comment": "",
+      "command": "type",
+      "target": "id=inputZip",
+      "targets": [
+        ["id=inputZip", "id"],
+        ["css=#inputZip", "css:finder"],
+        ["xpath=//input[@id='inputZip']", "xpath:attributes"],
+        ["xpath=//form[@id='homeInspectionForm']/div[9]/input", "xpath:idRelative"],
+        ["xpath=//div[9]/input", "xpath:position"]
+      ],
+      "value": "22030"
+    }, {
+      "id": "0a943bea-2dd3-4a0b-b83d-7d760f71f51f",
+      "comment": "",
+      "command": "click",
+      "target": "css=.col-12 > .btn",
+      "targets": [
+        ["css=.col-12 > .btn", "css:finder"],
+        ["xpath=//form[@id='homeInspectionForm']/div[10]/button", "xpath:idRelative"],
+        ["xpath=//div[10]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Submit')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "5f00254e-24df-409d-9871-afdb7967ea39",
+      "comment": "",
+      "command": "assertAlert",
+      "target": "Form submitted succesfuly!",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "c5e7c6b9-886d-4d49-8bba-646b5ef91466",
+    "name": "Tab switching",
+    "commands": [{
+      "id": "f0e141ec-55cb-4d42-8e2e-a9516f2abb11",
+      "comment": "",
+      "command": "open",
+      "target": "http://127.0.0.1:8080/houseCheck.html",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "a7925cf7-716d-444c-820b-ddf86b613347",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1512x884",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "4898e0af-57a6-4d2b-b533-98259dc74964",
+      "comment": "",
+      "command": "click",
+      "target": "id=pills-profile-tab",
+      "targets": [
+        ["id=pills-profile-tab", "id"],
+        ["css=#pills-profile-tab", "css:finder"],
+        ["xpath=//button[@id='pills-profile-tab']", "xpath:attributes"],
+        ["xpath=//ul[@id='pills-tab']/li[2]/button", "xpath:idRelative"],
+        ["xpath=//li[2]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Identify your house type')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "33a8bc82-9275-4742-b8bf-473d2ca3fdb1",
+      "comment": "",
+      "command": "click",
+      "target": "id=pills-contact-tab",
+      "targets": [
+        ["id=pills-contact-tab", "id"],
+        ["css=#pills-contact-tab", "css:finder"],
+        ["xpath=//button[@id='pills-contact-tab']", "xpath:attributes"],
+        ["xpath=//ul[@id='pills-tab']/li[3]/button", "xpath:idRelative"],
+        ["xpath=//li[3]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Request an inspection')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "3fb635c2-17dc-4c30-a942-6865d35d3657",
+      "comment": "",
+      "command": "click",
+      "target": "id=pills-profile-tab",
+      "targets": [
+        ["id=pills-profile-tab", "id"],
+        ["css=#pills-profile-tab", "css:finder"],
+        ["xpath=//button[@id='pills-profile-tab']", "xpath:attributes"],
+        ["xpath=//ul[@id='pills-tab']/li[2]/button", "xpath:idRelative"],
+        ["xpath=//li[2]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Identify your house type')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "717e40c6-4bcf-4eef-8cda-ae9558dc6f21",
+      "comment": "",
+      "command": "click",
+      "target": "id=pills-home-tab",
+      "targets": [
+        ["id=pills-home-tab", "id"],
+        ["css=#pills-home-tab", "css:finder"],
+        ["xpath=//button[@id='pills-home-tab']", "xpath:attributes"],
+        ["xpath=//ul[@id='pills-tab']/li/button", "xpath:idRelative"],
+        ["xpath=//li/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Home')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "8f8130eb-948a-4665-b3de-7b995f084935",
+    "name": "Form fail",
+    "commands": [{
+      "id": "1ab92e5c-dbe2-42f8-9a8e-0a999fb65139",
+      "comment": "",
+      "command": "open",
+      "target": "http://127.0.0.1:8080/houseCheck.html",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "1dfd1c41-ecb7-47b4-bf55-945e52ea4722",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1512x884",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "9686cca8-c79a-4f72-8479-9e041e88a4d3",
+      "comment": "",
+      "command": "click",
+      "target": "id=pills-contact-tab",
+      "targets": [
+        ["id=pills-contact-tab", "id"],
+        ["css=#pills-contact-tab", "css:finder"],
+        ["xpath=//button[@id='pills-contact-tab']", "xpath:attributes"],
+        ["xpath=//ul[@id='pills-tab']/li[3]/button", "xpath:idRelative"],
+        ["xpath=//li[3]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Request an inspection')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "79d85471-c6c0-4f83-8c6e-2fbd9513a2ea",
+      "comment": "",
+      "command": "click",
+      "target": "css=.col-12 > .btn",
+      "targets": [
+        ["css=.col-12 > .btn", "css:finder"],
+        ["xpath=//form[@id='homeInspectionForm']/div[10]/button", "xpath:idRelative"],
+        ["xpath=//div[10]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Submit')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "1b8e1ff6-fbe9-43e4-8ff8-dadead398415",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["15fbbfc8-6ebb-41e6-90e4-1aa563e44a5b"]
+  }],
+  "urls": ["http://127.0.0.1:8080/houseCheck.html"],
+  "plugins": []
+}
